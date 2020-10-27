@@ -94,7 +94,7 @@ p {
 }
 
 .low_fid {
-    background-color: azure;
+    background-color: #d8d9d0;
     padding-bottom: 2rem;
 }
 
@@ -103,7 +103,7 @@ p {
 }
 
 .hi_fid {
-    background-color: blanchedalmond;
+    background-color: papayawhip;
     padding-bottom: 2rem;
 }
 
@@ -112,5 +112,5 @@ p {
 }
 
 .resp {
-    background-color: #f2bb96;
+    background-color: #d8d9d0;
 }
