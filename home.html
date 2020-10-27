@@ -1,14 +1,166 @@
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
-    <title>INSERT TITLE HERE!</title>
-    <link rel="stylesheet" href="index.css">
-    <!-- TODO: add additional links here! e.g. fonts, icons, more stylesheets, etc. -->
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+	<meta charset="utf-8">
+	<title>AB Testing</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Piazzolla:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<meta content="width=device-width, initial-scale=1" name="viewport"/>
   </head>
 
   <body>
-    <!-- TODO: put your HTML code here! -->
+	
+	
+	<!-- Nav Bar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+		  <div class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto mb-lg-0">
+			<li class="nav-item"> <a class="nav-link" href="#Overview">Overview</a></li>
+			  <li class="nav-item"> <a class="nav-link" href="#Hypothesis">Hypothesis</a></li>
+			  <li class="nav-item"> <a class="nav-link" href="#Data">Data Collection</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#Info">Infographic</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#Takeaway">Takeaways</a></li>
+			</ul>
+		  </div>
+		</div>
+	</nav>
+
+
+	<!-- Landing Area Text + Underlayed Image -->
+	<div id="Home" class="d-flex flex-column cacti justify-content-center align-items-center text-center">
+		<div class="boost">
+			<h1> AB Testing</h1>
+			<h3>A Shopping Experiment</h3>
+		</div>
+	</div>
+
+
+	<!-- Featured Product Cards: Grid + Flex -->
+	<div id="Overview" class="overview">
+		<h4 class="text-center">Overview</h4>
+		<div class="container-fluid text-center">
+            <hr class="mb-4">
+            <p>
+                I began this assignment by taking a look at a cacti-shopping website. My goal was to create two
+                versions of this site so that I could test how people's shopping habits were affected by each
+                layout. <br><br>
+                You can take a look at my websites
+                <a href="https://pacific-dawn-35735.herokuapp.com/">here</a>. Each version of the website shows up
+                with a 50% chance, so refresh the page a few times until you see them both. I've also
+                included screenshots of each below! <br><br>
+            </p>
+
+            <div class="d-flex flex-row flex-wrap align-items-center justify-content-center pt-3">
+                <div class="d-flex flex-column pr-4">
+                    <h5>Site A</h5>
+                    <img src="site_a.png" class="castle">
+                </div>
+
+                <div class="d-flex flex-column">
+                    <h5>Site B</h5>
+                    <img src="site_b.png" class="castle">
+                </div>
+            </div>
+
+            <br>
+            <p>
+                Needless to say, there are some key differences between the two sites. Site A shows 
+                the items in a 2x2 grid. Importantly, you can't even see the red 'cart'
+                checkout button, because it is further down on the page. On the other hand, on Site B, 
+                the items are in a single line and the checkout button is within view.<br><br>
+                The rest of the project will go as follows: <br><br>
+                <ol style="text-align: center; list-style-position: inside; padding-bottom: 2rem;">
+                    <li>Hypothesis of user behavior on Site A vs. Site B</li>
+                    <li>A discussion of the data collection process</li>
+                    <li>Infographics illustrating the data results</li>
+                    <li>Key takeaways from the experiment</li>
+                </ol>
+            </p>
+		</div>
+	</div>
+
+
+
+	<div id="Hypothesis" class="usability">
+		<h4 class=text-center>Hypothesis</h4>
+		<div class="container-fluid">
+            <hr class="mb-4">
+            <p class="text-center"> My first step in this process was to make hypothesis that reflect
+                the way the site's designs are different. I think my changes, as you will read below, lead 
+                to some interesting conclusions.
+
+            </p><br>
+            <h5 class="text-center">Time to Completion:</h5>
+            
+           <p class="text-center">
+               My null hypothesis is that the time to completion on Site A is the same as the time to
+               completion on site B. My alternative hypothesis is that the time to completion is larger
+               on Site A. I believe this because, on Site B, we see all of the items we can buy and the 
+               checkout button on one page. People don't need to waste time scrolling to location the checkout button.
+           </p>
+            <br><br>
+            <h5 class="text-center">Return Rate:</h5>
+            <p class="text-center">
+               Once again, my null hypothesis is that the return rate on Site A is the same as the return rate 
+               on site B. My alternative hypothesis is that the return rate is higher
+               on Site A. I believe this because, on Site A, we might accidentally checkout without realizing
+               how much is in our cart. I think we are more likely to make this mistake on Site A because
+               the checkout button is hidden and the counts for each item in the cart are organized in the 2x2
+               form instead of linearly, as in Site B.
+            </p>
+		</div>
+    </div>
+    
+	<div id="Data" class="low_fid">
+		<h4 class=text-center>Data Collection</h4>
+		<div class="container-fluid">
+            <hr class="mb-4">
+            <p class="text-center">
+                After making my hypothesis, it was time to put them to the test. In order to do this, 
+                I devised a scheme to collect data on my two sites. These are the steps I took:<br><br>
+            </p>
+            <ol style="text-align: center; list-style-position: inside; padding-bottom: 2rem;">
+                <li>Recruit users to shop for $150 of plants (randomly assigned to Site A or B)</li>
+                <li>Inspect and clean heroku logs for each user session</li>
+                <li>Analyze time to completion and return rate for each user</li>
+                <li>Aggregate user data with other users of the same site version</li>
+                <li>Compute statistics (t-test and chi^2-test) for time to completion and return rate on each site</li>
+            </ol>
+            
+		</div>
+    </div>
+    
+	<div id="Info" class="hi_fid">
+		<h4 class=text-center>Infographic</h4>
+		<div class="container-fluid">
+            <hr class="mb-4">
+            <p class="text-center">
+                Below is an inforgraphic I created that shows the results of my statistical analyses.
+                <br><br>
+                <img src="Visual_Style_Guide.png" width="80%">
+            </p>
+		</div>
+    </div>
+
+    <div id="Takeaway" class="resp">
+		<h4 class=text-center>Takeways</h4>
+		<div class="container-fluid text-center">
+            <hr class="mb-4">
+            <p class = "text-center">Here are my main takeaways from this project: </p><br>
+            <ol style="text-align: center; list-style-position: inside; padding-bottom: 2rem;">
+                <li>Site design really matters and can impact user behavior!</li>
+                <li>Visual clarity is key to good design. In Site B, the better performing site, users saw all necessary information at the same time.</li>
+                <li>We could have collected better data if users had not seen other similar websites prior to testing.</li>
+                <li>Another interesting aspect of the study could have been to measure user satisfaction with their shopping experience.</li>
+            </ol>
+        </div>
+        <br><br>
+    </div>
+  
   </body>
 </html>
